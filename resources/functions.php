@@ -42,7 +42,7 @@ function get_products(){
     while($row = fetch_array($query)){
 
         $product = <<<DELIMETER
-
+        
         <div class="col-sm-4 col-lg-4 col-md-4">
             <div class="thumbnail">
             <a href="item.php?id{$row['prod_id']}"><img src="{$row['prod_image']}" alt=""></a>
@@ -64,4 +64,25 @@ DELIMETER;
 //Agar hamne massive amount of strings ko under php tag echo karana ho tu ham DELIMETER ka use karte hain so hame us string main double quotes or single quotes ko exchange karne ki zaroorat na pare.
 //Note: <<<DELIMETER k bad ko space nahi hona chahiye or na hi closing DELIMTER main koi space hona chahiye.
 //Hamne PKR k liye HTML ki entity &#8360; ko use kiya
+
+function get_categories(){
+    $query = query("SELECT * FROM categories");
+    confirm($query);
+
+    while($row = fetch_array($query)){
+
+$categories_links = <<<DELIMETER
+        
+        <a href='category.php?id={$row['cat_id']}' class='list-group-item'>{$row['cat_title']}</a>
+
+DELIMETER;
+        
+    echo $categories_links;
+
+    }
+        
+}
+//square bracket main agar cat_title nahi likhenge tu categories table k cat_title se data fetch nahi hoga.
+
+
 ?>
