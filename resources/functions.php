@@ -33,6 +33,8 @@ function fetch_array($result){
     return mysqli_fetch_array($result);
 }
 
+
+/*****************************FRONT END FUNCTIONS***********************************/
 //get products
 
 function get_products(){
@@ -48,7 +50,7 @@ function get_products(){
             <a href="item.php?id{$row['prod_id']}"><img src="{$row['prod_image']}" alt=""></a>
                 <div class="caption">
                     <h4 class="pull-right">&#8360;{$row['prod_price']}</h4>
-                    <h4><a href="product.html">{$row['prod_title']}</a>
+                    <h4><a href="item.php?id{$row['prod_id']}">{$row['prod_title']}</a>
                     </h4>
                     <p>See more snippets like this online store item at <a target="_blank" href="http://www.bootsnipp.com">Bootsnipp - http://bootsnipp.com</a>.</p>
                     <a class="btn btn-primary" target="_blank" href="item.php?id{$row['prod_id']}">Add to Cart</a>
@@ -84,5 +86,7 @@ DELIMETER;
 }
 //square bracket main agar cat_title nahi likhenge tu categories table k cat_title se data fetch nahi hoga.
 
+
+/*****************************BACK END FUNCTIONS***********************************/
 
 ?>
