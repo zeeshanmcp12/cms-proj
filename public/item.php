@@ -9,7 +9,14 @@
             <!-- Categories Here -->
 
             <?php include(TEMPLATE_FRONT . DS . "side_nav.php") ?>
-            
+
+<?php
+ $query = query(" SELECT * FROM products WHERE prod_id = " . escape_string($_GET['id']) ."  ");
+    confirm($query);
+
+    while($row = fetch_array($query)):
+
+?>           
 
 <div class="col-md-9">
 
@@ -18,7 +25,9 @@
 <div class="row">
 
     <div class="col-md-7">
-       <img class="img-responsive" src="http://placehold.it/700x600" alt="">
+       <img class="img-responsive" src="<?php echo $row['prod_image'] ?>" alt="">
+       <!--http://placehold.it/700x600 image size on product page--> 
+       
 
     </div>
 
@@ -28,9 +37,9 @@
          
 
     <div class="caption-full">
-        <h4><a href="#">Javascript Course</a> </h4>
+        <h4><a href="#"><?php echo $row['prod_title'] ?></a> </h4>
         <hr>
-        <h4 class="">$24.99</h4>
+        <h4 class=""><?php echo "&#8360;" . $row['prod_price'] ?></h4>
 
     <div class="ratings">
      
@@ -44,7 +53,7 @@
         </p>
     </div>
           
-        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum</p>
+        <p><?php echo $row['prod_short_desc'] ?></p>
 
    
     <form action="">
@@ -85,12 +94,7 @@
 
 <p></p>
            
-    <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum</p>
-
-    <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum</p>
-
-
-    <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum</p>
+    <p> <?php echo $row['prod_description'] ?></p>
 
     </div>
     <div role="tabpanel" class="tab-pane" id="profile">
@@ -195,7 +199,9 @@
 
 
 
-</div>
+</div> <!--Col-md-9 ends here-->
+
+<?php endwhile; ?>
 
 </div>
     <!-- /.container -->

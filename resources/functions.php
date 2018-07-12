@@ -47,13 +47,13 @@ function get_products(){
         
         <div class="col-sm-4 col-lg-4 col-md-4">
             <div class="thumbnail">
-            <a href="item.php?id{$row['prod_id']}"><img src="{$row['prod_image']}" alt=""></a>
+            <a href="item.php?id={$row['prod_id']}"><img src="{$row['prod_image']}" alt=""></a>
                 <div class="caption">
                     <h4 class="pull-right">&#8360;{$row['prod_price']}</h4>
-                    <h4><a href="item.php?id{$row['prod_id']}">{$row['prod_title']}</a>
+                    <h4><a href="item.php?id={$row['prod_id']}">{$row['prod_title']}</a>
                     </h4>
                     <p>See more snippets like this online store item at <a target="_blank" href="http://www.bootsnipp.com">Bootsnipp - http://bootsnipp.com</a>.</p>
-                    <a class="btn btn-primary" target="_blank" href="item.php?id{$row['prod_id']}">Add to Cart</a>
+                    <a class="btn btn-primary" target="_blank" href="item.php?id={$row['prod_id']}">Add to Cart</a>
                 </div>
             </div>
         </div>
