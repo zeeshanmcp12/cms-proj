@@ -86,6 +86,61 @@ DELIMETER;
 }
 //square bracket main agar cat_title nahi likhenge tu categories table k cat_title se data fetch nahi hoga.
 
+function get_products_in_cat_page(){
+    $query = query("SELECT * FROM products WHERE prod_category_id = " . escape_string($_GET['id']) . " ");
+    confirm($query);
+
+    while($row = fetch_array($query)){
+
+$show_product = <<<DELIMETER
+        
+<div class="col-md-3 col-sm-6 hero-feature">
+        <div class="thumbnail">
+            <img src="{$row['prod_image']}" alt="">
+            <div class="caption">
+                <h3>{$row['prod_title']}</h3>
+                <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit.</p>
+                <p>
+                    <a href="#" class="btn btn-primary">Buy Now!</a> <a href="item.php?id={$row['prod_id']} "id= class="btn btn-default">More Info</a>
+                </p>
+            </div>
+        </div>
+    </div>
+
+DELIMETER;
+    echo $show_product;
+
+    }
+}
+//http://placehold.it/800x500
+
+
+function get_products_in_shop_page(){
+    $query = query("SELECT * FROM products");
+    confirm($query);
+
+    while($row = fetch_array($query)){
+
+$show_product_in_shop_page = <<<DELIMETER
+        
+<div class="col-md-3 col-sm-6 hero-feature">
+        <div class="thumbnail">
+            <img src="{$row['prod_image']}" alt="">
+            <div class="caption">
+                <h3>{$row['prod_title']}</h3>
+                <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit.</p>
+                <p>
+                    <a href="#" class="btn btn-primary">Buy Now!</a> <a href="item.php?id={$row['prod_id']} "id= class="btn btn-default">More Info</a>
+                </p>
+            </div>
+        </div>
+    </div>
+
+DELIMETER;
+    echo $show_product_in_shop_page;
+
+    }
+}
 
 /*****************************BACK END FUNCTIONS***********************************/
 
