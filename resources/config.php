@@ -5,7 +5,8 @@
 //Session started
 session_start();
 
-//session_destroy();    This is for debugging only..agar ye on rakha tu phr har bar hamare sessions destroy hote rahenge.
+// session_destroy();
+//This is for debugging only..agar ye on rakha tu phr har bar hamare sessions destroy hote rahenge.
 
 defined("DS") ? null : define("DS", DIRECTORY_SEPARATOR);   //ye line directory structure set kardegi, means windows main \ or linux main / so DS will be our /(forward slash) or \(backslash)
 
