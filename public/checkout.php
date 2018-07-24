@@ -1,6 +1,7 @@
 
 <!-- Configuration Here -->
 <?php require_once("../resources/config.php"); ?>
+<?php require_once("cart.php"); ?>
 
 <!-- Header Here -->
 <?php include(TEMPLATE_FRONT . DS . "header.php"); ?>
@@ -35,15 +36,16 @@
           </tr>
         </thead>
         <tbody>
-            <tr>
+
+            <?php cart(); ?>
+            <!-- <tr>
                 <td>apple</td>
                 <td>$23</td>
                 <td>3</td>
                 <td>2</td>
-                <td><a href="cart.php?remove=1">Remove</a></td> <!-- this will remove/decrement the product-->
-                <td><a href="cart.php?delete=1">Delete</a></td> <!-- this will delete complete entry-->
-              
-            </tr>
+                <td><a href="cart.php?remove=1">Remove</a></td> this will remove/decrement the product
+                <td><a href="cart.php?delete=1">Delete</a></td> this will delete complete entry
+            </tr> -->
         </tbody>
     </table>
 </form>
