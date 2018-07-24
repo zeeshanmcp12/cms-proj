@@ -47,4 +47,47 @@
         redirect("checkout.php");
         }
 
+/*******************************************
+            * Cart Function
+*******************************************/
+function cart(){
+
+    foreach ($_SESSION as $name => $value) {
+
+    if ($value > 0) {
+        if (substr($name, 0, 8) == "product_") {
+            //substring 0 se start ho kar string k last digit tak count hoti hai...for example: p=1 and t=7
+
+
+        $length = strlen($name - 8);
+
+        $id = substr($name, 8, $length);
+
+                $query = query("SELECT * FROM products WHERE prod_id = " . escape_string($id) . " " );
+                confirm($query);
+            
+                while ($row = fetch_array($query)) {
+            
+                    $product = <<<DELIMETER
+                    <tr>
+                    <td>{$row['prod_title']}</td>
+                    <td>{$row['prod_price']}</td>
+                    <td>{$row['prod_quantity']}</td>
+                    <td>2</td>
+                    <td>
+                    <a class='btn btn-warning' href="cart.php?remove={$row['prod_id']}"><span class='glyphicon glyphicon-minus'></span></a>
+                    <a class='btn btn-success' href="cart.php?add={$row['prod_id']}"><span class='glyphicon glyphicon-plus'></span></a>
+                    <a class='btn btn-danger' href="cart.php?delete={$row['prod_id']}1"><span class='glyphicon glyphicon-remove'></span></a>
+                    <!-- this will delete complete entry-->
+                    </td>             
+                    </tr>
+DELIMETER;
+            
+            echo $product;
+                    }
+                }
+             }
+        }  
+}
+
 ?>
