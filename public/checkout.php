@@ -5,23 +5,22 @@
 <!-- Header Here -->
 <?php include(TEMPLATE_FRONT . DS . "header.php"); ?>
 
+<!-- <?php echo $_SESSION['product_1']; ?> --> <!-- Ye sirf testing purpose k liye hai -->
 
-<?php
+<?php 
+    if(isset($_SESSION['product_1'])){
 
-    $_SESSION['product_1'] = 4;
-
+        echo $_SESSION['product_1'];
+    }
 
 ?>
-
-
-    <!-- Page Content -->
+    <!-- Page Content  -->
     <div class="container">
-
 
 <!-- /.row --> 
 
 <div class="row">
-
+      <h4 class="text-center bg-danger"> <?php display_message(); ?> </h4>
       <h1>Checkout</h1>
 
 <form action="">
@@ -41,6 +40,8 @@
                 <td>$23</td>
                 <td>3</td>
                 <td>2</td>
+                <td><a href="cart.php?remove=1">Remove</a></td> <!-- this will remove/decrement the product-->
+                <td><a href="cart.php?delete=1">Delete</a></td> <!-- this will delete complete entry-->
               
             </tr>
         </tbody>
