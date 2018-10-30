@@ -7,7 +7,11 @@
                     <span class="icon-bar"></span>
                     <span class="icon-bar"></span>
                 </button>
+<<<<<<< HEAD
                 <a class="navbar-brand" href="index.php">Home</a>
+=======
+                <a class="navbar-brand" href="index.php">CWC-Home</a>
+>>>>>>> 4bff64c3c930c07e60e72d804975a116492c97aa
             </div>
             <!-- Collect the nav links, forms, and other content for toggling -->
             <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
