@@ -67,13 +67,15 @@ function cart(){
                 confirm($query);
             
                 while ($row = fetch_array($query)) {
+
+                    $sub = $row['prod_price']*$value;
             
-                    $product = <<<DELIMETER
+$product = <<<DELIMETER
                     <tr>
                     <td>{$row['prod_title']}</td>
-                    <td>{$row['prod_price']}</td>
-                    <td>{$row['prod_quantity']}</td>
-                    <td>2</td>
+                    <td>&#8360;{$row['prod_price']}</td>
+                    <td>{$value}</td>
+                    <td>&#8360;{$sub}</td>
                     <td>
                     <a class='btn btn-warning' href="cart.php?remove={$row['prod_id']}"><span class='glyphicon glyphicon-minus'></span></a>
                     <a class='btn btn-success' href="cart.php?add={$row['prod_id']}"><span class='glyphicon glyphicon-plus'></span></a>
