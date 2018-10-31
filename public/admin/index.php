@@ -8,8 +8,6 @@ if(!isset($_SESSION['username'])){
 
     redirect("../../public");
 }
-
-
 ?>
 
         <div id="page-wrapper">

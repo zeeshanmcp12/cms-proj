@@ -92,9 +92,9 @@ $product = <<<DELIMETER
                     <td>{$value}</td>
                     <td>&#8360;{$sub}</td>
                     <td>
-                    <a class='btn btn-warning' href="cart.php?remove={$row['prod_id']}"><span class='glyphicon glyphicon-minus'></span></a>
-                    <a class='btn btn-success' href="cart.php?add={$row['prod_id']}"><span class='glyphicon glyphicon-plus'></span></a>
-                    <a class='btn btn-danger' href="cart.php?delete={$row['prod_id']}"><span class='glyphicon glyphicon-remove'></span></a>
+                    <a class='btn btn-warning' href="../resources/cart.php?remove={$row['prod_id']}"><span class='glyphicon glyphicon-minus'></span></a>
+                    <a class='btn btn-success' href="../resources/cart.php?add={$row['prod_id']}"><span class='glyphicon glyphicon-plus'></span></a>
+                    <a class='btn btn-danger' href="../resources/cart.php?delete={$row['prod_id']}"><span class='glyphicon glyphicon-remove'></span></a>
                     <!-- this will delete complete entry-->
                     </td>             
                     </tr>

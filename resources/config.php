@@ -38,6 +38,7 @@ $connection = mysqli_connect(DB_HOST, DB_USER, DB_PASS, DB_NAME);
 
 //ham config.php file ko constantly use karenge because to include everything so functions.php file ko require_once function k sath use karliya so hame ye har jaga available ho.
 require_once("functions.php");
+require_once("cart.php");
 
 
 

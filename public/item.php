@@ -25,7 +25,7 @@
 <div class="row">
 
     <div class="col-md-7">
-       <img class="img-responsive" src="<?php echo $row['prod_image'] ?>" alt="">
+       <img class="img-responsive" src="images/<?php echo $row['prod_image'] ?>" alt="">
        <!--http://placehold.it/700x600 image size on product page--> 
        
 
@@ -58,7 +58,7 @@
    
     <form action="">
         <div class="form-group">
-            <a href="cart.php?add=<?php echo $row['prod_id']; ?>" class="btn btn-primary">ADD to Cart</a>
+            <a href="../resources/cart.php?add=<?php echo $row['prod_id']; ?>" class="btn btn-primary">ADD to Cart</a>
         </div>
     </form>
 
