@@ -20,6 +20,18 @@
                     </div>
                 </div>
                 <!-- /.row -->
+        <?php
+            if ($_SERVER['REQUEST_URI'] == "/cms-proj/public/admin/" || $_SERVER['REQUEST_URI'] == "/cms-proj/public/admin/index.php"){
+
+                include(TEMPLATE_BACK . "/admin_content.php");
+            } 
+        
+        ?>
+
+
+
+
+
             </div>
             <!-- /.container-fluid -->
 
