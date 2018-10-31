@@ -20,11 +20,11 @@
             if($row['prod_quantity'] != $_SESSION['product_' . $_GET['add']]){
 
                 $_SESSION['product_' . $_GET['add']] +=1;    //Here we are increamenting into which we fetched                                                  //from database.
-                redirect("checkout.php");
+                redirect("../public/checkout.php");
 
             }else {
                 set_message("We only have " . $row['prod_quantity'] . " " . "{$row['prod_title']}" . " available");
-                redirect("checkout.php");
+                redirect("../public/checkout.php");
             }
         }
     }
@@ -37,10 +37,10 @@
             unset($_SESSION['item_total']);
             unset($_SESSION['item_quantity']);
 
-            redirect("checkout.php");
+            redirect("../public/checkout.php");
 
         }else {
-            redirect("checkout.php");
+            redirect("../public/checkout.php");
         }
     }
 
@@ -50,7 +50,7 @@
         unset($_SESSION['item_total']);
         unset($_SESSION['item_quantity']);
 
-        redirect("checkout.php");
+        redirect("../public/checkout.php");
         }
 
 /*******************************************
