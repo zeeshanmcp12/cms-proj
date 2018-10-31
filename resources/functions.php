@@ -182,7 +182,8 @@ function login_user(){
 
         }else{
 
-            set_message("Welcome to Admin {$username} " );
+            $_SESSION['username'] = $username;
+            // set_message("Welcome to Admin {$username} ");
             redirect("admin");
         }
     }
