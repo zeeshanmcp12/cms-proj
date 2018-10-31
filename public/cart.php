@@ -83,6 +83,7 @@ function cart(){
 
                     $sub = $row['prod_price']*$value;
                     $item_quantity +=$value;
+                    
             
 $product = <<<DELIMETER
                     <tr>
@@ -98,10 +99,10 @@ $product = <<<DELIMETER
                     </td>             
                     </tr>
 
-                    <input type="hidden" name="item_name_{$item_name}" value="hat">
-                    <input type="hidden" name="item_number_{$item_number}" value="123">
-                    <input type="hidden" name="amount_{$amount}" value="15.00">
-                    <input type="hidden" name="quantity_{$quantity}" value="15.00">
+                    <input type="hidden" name="item_name_{$item_name}" value="{$row['prod_title']}">
+                    <input type="hidden" name="item_number_{$item_number}" value="{$row['prod_id']}">
+                    <input type="hidden" name="amount_{$amount}" value="{$row['prod_price']}">
+                    <input type="hidden" name="quantity_{$quantity}" value="{$value}">
 DELIMETER;
             
             echo $product;
@@ -112,6 +113,7 @@ DELIMETER;
 
             $_SESSION['item_total'] =  $total += $sub;
             $_SESSION['item_quantity'] = $item_quantity;
+            
                     }
                 }
              }
