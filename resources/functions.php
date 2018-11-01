@@ -241,9 +241,15 @@ $orders = <<<DELIMETER
         <td>{$row['order_transaction']}</td>
         <td>{$row['order_currency']}</td>
         <td>{$row['order_status']}</td>
+        <td><a class='btn btn-danger' href="../../resources/templates/back/delete_order.php?id={$row['order_id']}"><span class='glyphicon glyphicon-remove'></span></a>
+                    <a class='btn btn-success' href=""><span class='glyphicon glyphicon-plus'></span></a>
+                    <a class='btn btn-danger' href=""><span class='glyphicon glyphicon-remove'></span></a>
+                    <!-- this will delete complete entry-->
+                    </td>
     </tr>
 DELIMETER;
 
+// ../resources/cart.php?delete={$row['prod_id']}
 echo $orders;
 
     }
