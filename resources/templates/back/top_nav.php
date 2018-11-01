@@ -13,7 +13,7 @@
 <ul class="nav navbar-right top-nav">
 <a class="navbar-brand" href="../index.php">Homepage</a>
     <li class="dropdown">
-        <a href="#" class="dropdown-toggle" data-toggle="dropdown"><i class="fa fa-user"></i> John Smith <b class="caret"></b></a>
+        <a href="#" class="dropdown-toggle" data-toggle="dropdown"><i class="fa fa-user"></i> Zeeshan <b class="caret"></b></a>
         <ul class="dropdown-menu">
             
             <li class="divider"></li>
