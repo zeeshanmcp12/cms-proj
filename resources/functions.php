@@ -227,4 +227,27 @@ function send_message(){
 
 /*****************************BACK END FUNCTIONS***********************************/
 
+function display_order(){
+
+    $query = query("SELECT * FROM orders");
+    confirm($query);
+
+
+while ($row = fetch_array($query)){
+$orders = <<<DELIMETER
+    <tr>
+        <td>{$row['order_id']}</td>
+        <td>{$row['order_amount']}</td>
+        <td>{$row['order_transaction']}</td>
+        <td>{$row['order_currency']}</td>
+        <td>{$row['order_status']}</td>
+    </tr>
+DELIMETER;
+
+echo $orders;
+
+    }
+}
+
+
 ?>
