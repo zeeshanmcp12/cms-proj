@@ -256,4 +256,31 @@ echo $orders;
 }
 
 
+/************************************Admin Products****************************************/
+function get_products_in_admin(){
+$query = query("SELECT * FROM products");
+confirm($query);
+
+while($row = fetch_array($query)){
+
+$product = <<<DELIMETER
+        
+        <tr>
+            <td>{$row['prod_id']}</td>
+            <td>{$row['prod_title']}<br>
+            <img src="{$row['prod_image']}" alt="">
+            </td>
+            <td>Category</td>
+            <td>{$row['prod_price']}</td>
+            <td>{$row['prod_quantity']}</td>
+        </tr>
+
+DELIMETER;
+    echo $product;
+
+    }    
+
+}
+
+
 ?>
