@@ -268,11 +268,16 @@ $product = <<<DELIMETER
         <tr>
             <td>{$row['prod_id']}</td>
             <td>{$row['prod_title']}<br>
-            <img src="{$row['prod_image']}" alt="">
+            <a href="index.php?edit_product&id={$row['prod_id']}"><img src="{$row['prod_image']}" alt=""></a>
             </td>
             <td>Category</td>
             <td>{$row['prod_price']}</td>
             <td>{$row['prod_quantity']}</td>
+            <td><a class='btn btn-danger' href="../../resources/templates/back/delete_product.php?id={$row['prod_id']}"><span class='glyphicon glyphicon-remove'></span></a>
+                    <a class='btn btn-success' href=""><span class='glyphicon glyphicon-plus'></span></a>
+                    <a class='btn btn-danger' href=""><span class='glyphicon glyphicon-remove'></span></a>
+                    <!-- this will delete complete entry-->
+                    </td>
         </tr>
 
 DELIMETER;
