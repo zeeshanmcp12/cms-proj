@@ -275,7 +275,6 @@ $product = <<<DELIMETER
             <td>{$row['prod_quantity']}</td>
             <td><a class='btn btn-danger' href="../../resources/templates/back/delete_product.php?id={$row['prod_id']}"><span class='glyphicon glyphicon-remove'></span></a>
                     <a class='btn btn-success' href=""><span class='glyphicon glyphicon-plus'></span></a>
-                    <a class='btn btn-danger' href=""><span class='glyphicon glyphicon-remove'></span></a>
                     <!-- this will delete complete entry-->
                     </td>
         </tr>
