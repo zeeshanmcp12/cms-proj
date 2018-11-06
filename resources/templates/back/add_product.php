@@ -1,4 +1,7 @@
 
+<?php echo add_product() ;
+/****** above one will start work when we will click on Publish button.**********/
+?>
 
 <div class="col-md-12">
 
@@ -12,6 +15,7 @@
 
 
 <form action="" method="post" enctype="multipart/form-data">
+<!-- enctype - we used enctype when we want to use multi files inside forms, mostly jab hame pictures form main  add karani hoti hain tu ham enctype use karte hain. -->
 
 
 <div class="col-md-8">
