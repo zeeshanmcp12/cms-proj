@@ -83,11 +83,16 @@ function cart(){
 
                     $sub = $row['prod_price']*$value;
                     $item_quantity +=$value;
+
+                    $product_image = display_image($row['prod_image']);
                     
             
 $product = <<<DELIMETER
                     <tr>
-                    <td>{$row['prod_title']}</td>
+                    <td>{$row['prod_title']}<br>
+                    <img width='100' src='../resources/{$product_image}'>
+                    
+                    </td>
                     <td>&#8360;{$row['prod_price']}</td>
                     <td>{$value}</td>
                     <td>&#8360;{$sub}</td>

@@ -25,7 +25,7 @@
 <div class="row">
 
     <div class="col-md-7">
-       <img class="img-responsive" src="images/<?php echo $row['prod_image'] ?>" alt="">
+       <img class="img-responsive" src="../resources/<?php echo display_image($row['prod_image']); ?>" alt="">
        <!--http://placehold.it/700x600 image size on product page--> 
        
 

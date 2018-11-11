@@ -13,9 +13,8 @@
 </div>
                
 
-
 <form action="" method="post" enctype="multipart/form-data">
-<!-- enctype - we used enctype when we want to use multi files inside forms, mostly jab hame pictures form main  add karani hoti hain tu ham enctype use karte hain. -->
+<!-- enctype - we used enctype when we want to use multi files inside forms, mostly jab hame pictures form main  add karani hoti hain tu ham enctype use karte hain. Mostly ham photos k liye is data type ko use karte hain -->
 
 
 <div class="col-md-8">

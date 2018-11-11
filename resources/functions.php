@@ -1,6 +1,9 @@
 <?php
 
+$upload_directory = "uploads";
+
 //Helper functions
+
 
 
 function last_id(){
@@ -75,11 +78,13 @@ function get_products(){
 
     while($row = fetch_array($query)){
 
+        $product_image = display_image($row['prod_image']);
+
         $product = <<<DELIMETER
         
         <div class="col-sm-4 col-lg-4 col-md-4">
             <div class="thumbnail">
-            <a href="item.php?id={$row['prod_id']}"><img src="{$row['prod_image']}" alt=""></a>
+            <a href="item.php?id={$row['prod_id']}"><img src="../resources/{$product_image}" alt=""></a>
                 <div class="caption">
                     <h4 class="pull-right">&#8360;{$row['prod_price']}</h4>
                     <h4><a href="item.php?id={$row['prod_id']}">{$row['prod_title']}</a>
@@ -257,6 +262,16 @@ echo $orders;
 
 
 /************************************Admin Products Page****************************************/
+
+function display_image($picture){
+
+global $upload_directory;
+
+return $upload_directory . DS . $picture;
+
+}
+
+
 function get_products_in_admin(){
 $query = query("SELECT * FROM products");
 confirm($query);
@@ -265,12 +280,15 @@ while($row = fetch_array($query)){
 
     $category = show_product_category_title($row['prod_category_id']);
 
+    $product_image = display_image($row['prod_image']);
+
+
 $product = <<<DELIMETER
         
         <tr>
             <td>{$row['prod_id']}</td>
             <td>{$row['prod_title']}<br>
-            <a href="index.php?edit_product&id={$row['prod_id']}"><img src="{$row['prod_image']}" alt=""></a>
+            <a href="index.php?edit_product&id={$row['prod_id']}"><img width='100' src="../../resources/{$product_image}" alt=""></a>
             </td>
             <td>{$category}</td>
             <td>{$row['prod_price']}</td>
@@ -322,7 +340,7 @@ function add_product(){
 
         move_uploaded_file($image_temp_location , UPLOAD_DIRECTORY . DS . $product_image);
 
-        $query = query("INSERT INTO products(prod_title, prod_category_id, prod_price, prod_description, prod_short_desc, prod_quantity) VALUES('{$product_title}', '{$product_category_id}', '{$product_price}', '{$product_description}', '{$short_desc}', '{$product_quantity}' '{$product_image}')");
+        $query = query("INSERT INTO products(prod_title, prod_category_id, prod_price, prod_description, prod_short_desc, prod_quantity, prod_image) VALUES('{$product_title}', '{$product_category_id}', '{$product_price}', '{$product_description}', '{$short_desc}', '{$product_quantity}', '{$product_image}')");
         $last_id = last_id();
 
         confirm($query);
