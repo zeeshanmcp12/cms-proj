@@ -303,6 +303,8 @@ function add_product(){
         $image_temp_location        = escape_string($_FILES['file']['tmp_name']);
         // 2 array define kiye and then 2 keys like file and tmp_name, tmp_name is wajah se k ham kisi bhi file ko temp location par save karaenge and then image ki directory main move karenge.
 
+        move_uploaded_file($image_temp_location , UPLOAD_DIRECTORY . DS . $product_image);
+
     }
 }
 
