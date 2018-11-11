@@ -390,6 +390,17 @@ function update_product(){
         // Files super global variable is wajah se use kiya because hame apni files upload karni hai
         $image_temp_location        = escape_string($_FILES['file']['tmp_name']);
         // 2 array define kiye and then 2 keys like file and tmp_name, tmp_name is wajah se k ham kisi bhi file ko temp location par save karaenge and then image ki directory main move karenge.
+        
+
+        if(empty($product_image)){
+
+            $get_pic = query("SELECT prod_image FROM products WHERE prod_id=" . escape_string($_GET['id']) . " ");
+            confirm($get_pic);
+
+            while ($pic = fetch_array($get_pic)) {
+                $product_image = $pic['prod_image'];
+            }
+        }
 
         move_uploaded_file($image_temp_location , UPLOAD_DIRECTORY . DS . $product_image);
 
@@ -401,12 +412,10 @@ function update_product(){
         $query .= "prod_short_desc    = '{$product_short_desc}'     , ";
         $query .= "prod_quantity      = '{$product_quantity}'       , ";
         $query .= "prod_image         = '{$product_image}'            ";
-        $query .= "WHERE prod_id" . escape_string($_GET['id']);
+        $query .= "WHERE prod_id=" . escape_string($_GET['id']);
 
-
-        $last_id = last_id();
-
-        confirm($query);
+        $send_update_query = query($query);
+        confirm($send_update_query);
         set_message("Product has been updated");
         redirect("index.php?products");
         
