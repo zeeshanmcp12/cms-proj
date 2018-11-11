@@ -296,7 +296,7 @@ function add_product(){
         $product_category_id        = escape_string($_POST['prod_category_id']);
         $product_price              = escape_string($_POST['prod_price']);
         $product_description        = escape_string($_POST['prod_description']);
-        $short_desc                 = escape_string($_POST['short_desc']);
+        $short_desc                 = escape_string($_POST['prod_short_desc']);
         $product_quantity           = escape_string($_POST['prod_quantity']);
         $product_image              = escape_string($_FILES['file']['name']);
         // Files super global variable is wajah se use kiya because hame apni files upload karni hai
@@ -305,15 +305,13 @@ function add_product(){
 
         move_uploaded_file($image_temp_location , UPLOAD_DIRECTORY . DS . $product_image);
 
-        $query = query("INSERT INTO products(prod_title, prod_category_id, prod_price, prod_description, short_desc, prod_quantity ) VALUES('{$prod_title}', '{$prod_category_id}', '{$prod_price}', '{$prod_description}', '{$short_desc}', '{$prod_quantity}')");
+        $query = query("INSERT INTO products(prod_title, prod_category_id, prod_price, prod_description, prod_short_desc, prod_quantity) VALUES('{$product_title}', '{$product_category_id}', '{$product_price}', '{$product_description}', '{$short_desc}', '{$product_quantity}' '{$product_image}')");
         $last_id = last_id();
 
         confirm($query);
         set_message("New Product with id {$last_id} Added");
         redirect("index.php?products");
         
-
-
     }
 }
 
