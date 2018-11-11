@@ -256,12 +256,14 @@ echo $orders;
 }
 
 
-/************************************Admin Products****************************************/
+/************************************Admin Products Page****************************************/
 function get_products_in_admin(){
 $query = query("SELECT * FROM products");
 confirm($query);
 
 while($row = fetch_array($query)){
+
+    $category = show_product_category_title($row['prod_category_id']);
 
 $product = <<<DELIMETER
         
@@ -270,7 +272,7 @@ $product = <<<DELIMETER
             <td>{$row['prod_title']}<br>
             <a href="index.php?edit_product&id={$row['prod_id']}"><img src="{$row['prod_image']}" alt=""></a>
             </td>
-            <td>Category</td>
+            <td>{$category}</td>
             <td>{$row['prod_price']}</td>
             <td>{$row['prod_quantity']}</td>
             <td><a class='btn btn-danger' href="../../resources/templates/back/delete_product.php?id={$row['prod_id']}"><span class='glyphicon glyphicon-remove'></span></a>
@@ -283,6 +285,21 @@ DELIMETER;
     echo $product;
 
     }    
+
+}
+
+function show_product_category_title($product_category_id){
+
+    $category_query = query("SELECT * FROM categories WHERE cat_id = '{$product_category_id}'");
+    confirm($category_query);
+    
+    while ($category_row = fetch_array($category_query)) {
+        return $category_row ['cat_title'];
+    }
+
+
+
+
 
 }
 
