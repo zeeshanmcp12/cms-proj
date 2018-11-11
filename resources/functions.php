@@ -129,16 +129,18 @@ function get_products_in_cat_page(){
 
     while($row = fetch_array($query)){
 
+    $product_image = display_image($row['prod_image']);
+
 $show_product = <<<DELIMETER
         
 <div class="col-md-3 col-sm-6 hero-feature">
         <div class="thumbnail">
-            <img src="{$row['prod_image']}" alt="">
+            <img src="../resources/{$product_image}" alt="">
             <div class="caption">
                 <h3>{$row['prod_title']}</h3>
                 <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit.</p>
                 <p>
-                    <a href="#" class="btn btn-primary">Buy Now!</a> <a href="item.php?id={$row['prod_id']} "id= class="btn btn-default">More Info</a>
+                    <a href="../resources/cart.php?add={$row['prod_id']}" class="btn btn-primary">Buy Now!</a> <a href="item.php?id={$row['prod_id']} "id= class="btn btn-default">More Info</a>
                 </p>
             </div>
         </div>
@@ -158,16 +160,18 @@ function get_products_in_shop_page(){
 
     while($row = fetch_array($query)){
 
+    $product_image = display_image($row['prod_image']);
+
 $show_product_in_shop_page = <<<DELIMETER
         
 <div class="col-md-3 col-sm-6 hero-feature">
         <div class="thumbnail">
-            <img src="{$row['prod_image']}" alt="">
+            <img src="../resources/{$product_image}" alt="">
             <div class="caption">
                 <h3>{$row['prod_title']}</h3>
                 <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit.</p>
                 <p>
-                    <a href="#" class="btn btn-primary">Buy Now!</a> <a href="item.php?id={$row['prod_id']} "id= class="btn btn-default">More Info</a>
+                    <a href="../resources/cart.php?add={$row['prod_id']}" class="btn btn-primary">Buy Now!</a> <a href="item.php?id={$row['prod_id']} "id= class="btn btn-default">More Info</a>
                 </p>
             </div>
         </div>
