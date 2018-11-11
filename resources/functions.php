@@ -378,7 +378,7 @@ DELIMETER;
 /************************************Updating Product Code****************************************/
 
 function update_product(){
-    if (isset($_POST['publish'])) {
+    if (isset($_POST['update'])) {
         
         $product_title              = escape_string($_POST['prod_title']);
         $product_category_id        = escape_string($_POST['prod_category_id']);

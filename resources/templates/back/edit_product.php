@@ -1,4 +1,34 @@
 
+<?php
+
+
+if (isset($_GET['id'])) {
+
+$query = query("SELECT * FROM products WHERE prod_id = " . escape_string($_GET['id']) . " ");
+
+confirm($query);
+
+while($row = fetch_array($query)) {
+    $product_title              = escape_string($row['prod_title']);
+    $product_category_id        = escape_string($row['prod_category_id']);
+    $product_price              = escape_string($row['prod_price']);
+    $product_description        = escape_string($row['prod_description']);
+    $short_desc                 = escape_string($row['prod_short_desc']);
+    $product_quantity           = escape_string($row['prod_quantity']);
+    $product_image              = escape_string($row['prod_image']);
+
+    $product_image = display_image($row['prod_image']);
+    }
+
+update_product();
+
+}
+
+
+
+
+?>
+
 <div class="col-md-12">
 
 <div class="row">
@@ -17,14 +47,14 @@
 
 <div class="form-group">
     <label for="product-title">Product Title </label>
-        <input type="text" name="prod_title" class="form-control">
+        <input type="text" name="prod_title" class="form-control" value="<?php echo $product_title; ?>">
        
     </div>
 
 
     <div class="form-group">
            <label for="product-title">Product Description</label>
-      <textarea name="prod_description" id="" cols="30" rows="10" class="form-control"></textarea>
+      <textarea name="prod_description" id="" cols="30" rows="10" class="form-control"><?php echo $product_description; ?></textarea>
     </div>
 
 
@@ -33,14 +63,14 @@
 
       <div class="col-xs-3">
         <label for="product-price">Product Price</label>
-        <input type="number" name="prod_price" class="form-control" size="60">
+        <input type="number" name="prod_price" class="form-control" size="60" value="<?php echo $product_price; ?>">
       </div>
     </div>
 
 
     <div class="form-group">
            <label for="product-title">Product Short Description</label>
-      <textarea name="prod_short_desc" id="" cols="30" rows="3" class="form-control"></textarea>
+      <textarea name="prod_short_desc" id="" cols="30" rows="3" class="form-control"><?php echo $short_desc; ?></textarea>
     </div>
   
 
@@ -79,7 +109,7 @@
 
     <div class="form-group">
       <label for="product-title">Product Quantity</label>
-         <input type="number" name="prod_quantity" class="form-control">
+         <input type="number" name="prod_quantity" class="form-control" value="<?php echo $product_quantity; ?>">
     </div>
 
 
@@ -95,7 +125,9 @@
     <!-- Product Image -->
     <div class="form-group">
         <label for="product-title">Product Image</label>
-        <input type="file" name="file">
+        <input type="file" name="file"> <br>
+
+        <img width='200' src="../../resources/<?php echo $product_image; ?>" alt="">
       
     </div>
 
