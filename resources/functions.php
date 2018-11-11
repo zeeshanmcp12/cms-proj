@@ -394,12 +394,14 @@ function update_product(){
         move_uploaded_file($image_temp_location , UPLOAD_DIRECTORY . DS . $product_image);
 
         $query = "UPDATE products SET ";
-        $query .= "prod_title         = '{$product_title}', ";
-        $query .= "prod_category_id   = '{$product_category_id}', ";
-        $query .= "prod_price         = '{$product_price}', ";
-        $query .= "prod_description   = '{$product_description}', ";
-        $query .= "prod_short_desc    = '{$product_short_desc}', ";
-        $query .= "prod_quantity      = '{$product_quantity}', ";
+        $query .= "prod_title         = '{$product_title}'          , ";
+        $query .= "prod_category_id   = '{$product_category_id}'    , ";
+        $query .= "prod_price         = '{$product_price}'          , ";
+        $query .= "prod_description   = '{$product_description}'    , ";
+        $query .= "prod_short_desc    = '{$product_short_desc}'     , ";
+        $query .= "prod_quantity      = '{$product_quantity}'       , ";
+        $query .= "prod_image         = '{$product_image}'            ";
+        $query .= "WHERE prod_id" . escape_string($_GET['id']);
 
 
         $last_id = last_id();
