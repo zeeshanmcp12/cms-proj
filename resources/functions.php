@@ -373,4 +373,42 @@ DELIMETER;
         
 }
 
+
+
+/************************************Updating Product Code****************************************/
+
+function update_product(){
+    if (isset($_POST['publish'])) {
+        
+        $product_title              = escape_string($_POST['prod_title']);
+        $product_category_id        = escape_string($_POST['prod_category_id']);
+        $product_price              = escape_string($_POST['prod_price']);
+        $product_description        = escape_string($_POST['prod_description']);
+        $short_desc                 = escape_string($_POST['prod_short_desc']);
+        $product_quantity           = escape_string($_POST['prod_quantity']);
+        $product_image              = escape_string($_FILES['file']['name']);
+        // Files super global variable is wajah se use kiya because hame apni files upload karni hai
+        $image_temp_location        = escape_string($_FILES['file']['tmp_name']);
+        // 2 array define kiye and then 2 keys like file and tmp_name, tmp_name is wajah se k ham kisi bhi file ko temp location par save karaenge and then image ki directory main move karenge.
+
+        move_uploaded_file($image_temp_location , UPLOAD_DIRECTORY . DS . $product_image);
+
+        $query = "UPDATE products SET ";
+        $query .= "prod_title         = '{$product_title}', ";
+        $query .= "prod_category_id   = '{$product_category_id}', ";
+        $query .= "prod_price         = '{$product_price}', ";
+        $query .= "prod_description   = '{$product_description}', ";
+        $query .= "prod_short_desc    = '{$product_short_desc}', ";
+        $query .= "prod_quantity      = '{$product_quantity}', ";
+
+
+        $last_id = last_id();
+
+        confirm($query);
+        set_message("Product has been updated");
+        redirect("index.php?products");
+        
+    }
+}
+
 ?>
