@@ -305,6 +305,15 @@ function add_product(){
 
         move_uploaded_file($image_temp_location , UPLOAD_DIRECTORY . DS . $product_image);
 
+        $query = query("INSERT INTO products(prod_title, prod_category_id, prod_price, prod_description, short_desc, prod_quantity ) VALUES('{$prod_title}', '{$prod_category_id}', '{$prod_price}', '{$prod_description}', '{$short_desc}', '{$prod_quantity}')");
+        $last_id = last_id();
+
+        confirm($query);
+        set_message("New Product with id {$last_id} Added");
+        redirect("index.php?products");
+        
+
+
     }
 }
 
