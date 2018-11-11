@@ -68,8 +68,10 @@
 
     <div class="form-group">
          <label for="product-title">Product Category</label>
-        <select name="prod_category" id="" class="form-control">
+        <select name="prod_category_id" id="" class="form-control">
             <option value="">Select Category</option>
+
+            <?php show_categories_add_product_page(); ?>
            
         </select>
 
