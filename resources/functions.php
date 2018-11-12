@@ -470,4 +470,35 @@ function add_category(){
     }
 }
 
+/************************************ Admin Users ****************************************/
+
+function display_users(){
+
+    $category_query = query("SELECT * FROM users");
+    confirm($category_query);
+
+    while ($row = fetch_array($category_query)) {
+        $user_id = $row['user_id'];
+        $username = $row['username'];
+        $email = $row['email'];
+        $password = $row['password'];
+
+$user = <<<DELIMETER
+
+<tr>
+    <td>{$user_id}</td>
+    <td>{$username}</td>
+    <td>{$email}</td>
+    <td><a class='btn btn-danger' href="../../resources/templates/back/delete_user.php?id={$row['user_id']}"><span class='glyphicon glyphicon-remove'></span></a>
+    <!-- this will delete complete entry-->
+    </td>
+</tr>
+
+DELIMETER;
+
+echo $user;
+
+    }
+}
+
 ?>
