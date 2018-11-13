@@ -26,9 +26,9 @@
       <h4 class="text-center bg-danger"> <?php display_message(); ?> </h4>
       <h1>Checkout</h1>
 
-<form action="https://sandbox.paypal.com/cgi-bin/webscr" method="post">
+<form action="https://www.sandbox.paypal.com/cgi-bin/webscr" method="post">
 <input type="hidden" name="cmd" value="_cart">
-<input type="hidden" name="business" value="mc170202331@vu.edu.pk">
+<input type="hidden" name="business" value="business@cwc.com">
     <table class="table table-striped">
         <thead>
           <tr>

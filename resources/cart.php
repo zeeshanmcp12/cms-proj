@@ -147,7 +147,7 @@ return $paypal_button;
 
 function process_transaction(){
 
-
+    // echo "<pre>";print_r($_GET);die;
 
     if (isset($_GET['tx'])){
 
@@ -192,7 +192,7 @@ function process_transaction(){
                     
                         }
                     $total += $sub;
-                    echo $item_quantity;
+                    $item_quantity;
                 
                     
                             
