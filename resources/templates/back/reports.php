@@ -1,6 +1,6 @@
 
 <h1 class="page-header">
-   All Products
+   Reports
 
 </h1>
 
